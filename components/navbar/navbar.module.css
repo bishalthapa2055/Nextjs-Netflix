@@ -1,0 +1,50 @@
+.nav__container{
+    width:  100%;
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5rem;
+    position: absolute;
+    color: white;
+    z-index: 10;
+    
+}
+
+.nav__left__container{
+    /* background: red; */
+    display: flex;
+    gap: 12rem;
+}
+
+.nav__right__container {
+    background-color: aqua;
+}
+
+.nav__logo{
+    font-size: 1.3rem;
+    line-height: 1rem;
+    color:red;
+}
+
+.nav__home {
+    cursor: pointer;
+}
+
+
+.nav__lists  {
+    display: flex;
+    gap: 3rem;
+}
+
+.home  , .mylists{
+    cursor: pointer;
+    font-weight: 900;
+}
+
+
+
+.select{
+    background: transparent;
+    background-color: none  ;
+}
