@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from "./banner.module.css"
 import Image from 'next/image';
+import { PlayArrowOutlined } from '@mui/icons-material';
 
 
 const Banner = (props) => {
@@ -16,6 +17,8 @@ const Banner = (props) => {
         <h3 className={styles.title}>{title}</h3>
         <h3 className={styles.subtitle}>{subtitle}</h3>
       <div className={styles.playButton}>
+        
+        <PlayArrowOutlined />
 
         <button className={styles.buttonClass}> Play Video</button>
       </div>
