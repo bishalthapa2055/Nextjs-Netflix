@@ -21,6 +21,9 @@
     background-color: aqua;
 }
 
+.logoLink {
+    cursor: pointer;
+}
 .nav__logo{
     font-size: 1.3rem;
     line-height: 1rem;
