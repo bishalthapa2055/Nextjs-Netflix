@@ -5,7 +5,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 5rem;
-    position: absolute;
+    /* position: inherit; */
     color: white;
     z-index: 10;
     
@@ -18,7 +18,14 @@
 }
 
 .nav__right__container {
-    background-color: aqua;
+    /* background-color: aqua; */
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; 
 }
 
 .logoLink {
@@ -38,6 +45,12 @@
 .nav__lists  {
     display: flex;
     gap: 3rem;
+   
+}
+
+.netflix {
+    /* background-color: wheat; */
+    cursor: pointer;
 }
 
 .home  , .mylists{
@@ -51,3 +64,10 @@
     background: transparent;
     background-color: none  ;
 }
+
+.signout {
+    position: absolute;
+    top: 100%; /* Position it below the h5 element */
+    margin-right: 15px;
+   
+  }

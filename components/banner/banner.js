@@ -18,7 +18,9 @@ const Banner = (props) => {
         <h3 className={styles.subtitle}>{subtitle}</h3>
       <div className={styles.playButton}>
         
-        <PlayArrowOutlined />
+        <PlayArrowOutlined  style={{
+          cursor :"pointer"
+        }}/>
 
         <button className={styles.buttonClass}> Play Video</button>
       </div>
