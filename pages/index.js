@@ -2,6 +2,7 @@ import Banner from '@/components/banner/banner'
 import Head from 'next/head'
 import styles from "../styles/Home.module.css"
 import Navbar from '@/components/navbar/navbar.jsx'
+import Card from '@/components/card/card'
 
 export default function Home() {
   return (
@@ -15,6 +16,9 @@ export default function Home() {
       </Head>
       <Navbar userName = "testbishalthapa@gmail.com"/>
       <Banner title ="Japan" subtitle ="East Coast of Asia" imageUrl  = "/statics/p1.jpg"  />
+      <Card imageUrl ="/statics/lion.jpg" size="small"/>
+      <Card imageUrl ="/statics/lion.jpg" size="medium"/>
+      <Card imageUrl ="/statics/lion.jpg" size="large"/>
     </div>
     </>
   )
