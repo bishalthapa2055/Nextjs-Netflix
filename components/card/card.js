@@ -6,7 +6,7 @@ import cls from "classnames"
 
 
 const Card = (props) => {
-    const {imageUrl = "./statics/action.jpg" , size = "medium"}  = props    ;
+    const {imageUrl , size}  = props    ;
     const [ imgSrc  , setImgSrc] = useState(imageUrl)
     console.log(imageUrl , size)
 
@@ -25,8 +25,10 @@ const Card = (props) => {
    <>
    <div className={styles.container}>
 
-   <motion.div className={cls(styles.imgMotionWrapper  , classMap[size])}  whileHover={{ scale: 1.2 }}>
-   <Image src={imgSrc} alt='image' layout='fill' onError={handleOnError} className={styles.cardImg}/>
+   <motion.div className={cls(styles.imgMotionWrapper  , classMap[size])}  whileHover={{ scaleY: 1.1 }}>
+   <Image src={imageUrl} alt='image' layout='fill' 
+//    onError={handleOnError} 
+   className={styles.cardImg}/>
    </motion.div>
    </div>
    </>
