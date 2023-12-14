@@ -3,8 +3,26 @@ import Head from 'next/head'
 import styles from "../styles/Home.module.css"
 import Navbar from '@/components/navbar/navbar.jsx'
 import Card from '@/components/card/card'
+import SectionCard from '@/components/card/sectionCard'
+import { getVideos } from '@/lib/videos'
 
-export default function Home() {
+// This gets called on every request
+export async function getServerSideProps() {
+  // Fetch data from external API
+  // const res = await fetch(`https://.../data`)
+  // const data = await res.json()
+  const disneyVideos =await getVideos()
+  console.log(disneyVideos ,"vidoes")
+ 
+  // Pass data to the page via props
+  return { props: { disneyVideos } }
+}
+
+
+
+
+export default function Home({disneyVideos}) {
+
   return (
     <>
     <div >
@@ -16,9 +34,17 @@ export default function Home() {
       </Head>
       <Navbar userName = "testbishalthapa@gmail.com"/>
       <Banner title ="Japan" subtitle ="East Coast of Asia" imageUrl  = "/statics/p1.jpg"  />
-      <Card imageUrl ="/statics/lion.jpg" size="small"/>
-      <Card imageUrl ="/statics/lion.jpg" size="medium"/>
-      <Card imageUrl ="/statics/lion.jpg" size="large"/>
+
+
+      <div className={styles.sectionWrapper}>
+
+      <SectionCard title="Disney" videos ={disneyVideos} />
+      </div>
+
+
+      {/* <Card imageUrl ="/statics/lion.jpg" size="small"/> */}
+      {/* <Card imageUrl ="/statics/lion.jpg" size="medium"/> */}
+      {/* <Card imageUrl ="/statics/lion.jpg" size="large"/> */}
     </div>
     </>
   )
