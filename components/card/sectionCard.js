@@ -2,7 +2,7 @@ import React from 'react'
 import Card from './card'
 import styles from "./sectionCard.module.css"
 const SectionCard = (props) => {
-    const {title ,videos} = props ;
+    const {title ,videos , size} = props ;
     console.log(videos)
   return (
     <>
@@ -11,7 +11,7 @@ const SectionCard = (props) => {
         <div className={styles.cardWrapper}> 
         {videos.map((item , id) =>(
 
-          <Card key={id} imageUrl={item.imgUrl} size = "large" />
+          <Card key={id} imageUrl={item.imgUrl} size = {size} />
             
         )
           )}

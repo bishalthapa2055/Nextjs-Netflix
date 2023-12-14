@@ -11,17 +11,24 @@ export async function getServerSideProps() {
   // Fetch data from external API
   // const res = await fetch(`https://.../data`)
   // const data = await res.json()
-  const disneyVideos =await getVideos()
-  console.log(disneyVideos ,"vidoes")
+  const disneyVideos =await getVideos("disney trailer")
+  // console.log(disneyVideos ,"vidoes")
+
+  const traveVideos =await getVideos("Travel Videos")
+  // console.log(traveVideos ,"vidoes")
+
+  const productivityVideos =await getVideos("Productivvity Videos")
+
+  
  
   // Pass data to the page via props
-  return { props: { disneyVideos } }
+  return { props: { disneyVideos ,  traveVideos , productivityVideos} }
 }
 
 
 
 
-export default function Home({disneyVideos}) {
+export default function Home({disneyVideos ,  traveVideos , productivityVideos }) {
 
   return (
     <>
@@ -38,7 +45,9 @@ export default function Home({disneyVideos}) {
 
       <div className={styles.sectionWrapper}>
 
-      <SectionCard title="Disney" videos ={disneyVideos} />
+      <SectionCard title="Disney" videos ={disneyVideos} size="large" />
+      <SectionCard title="Travel" videos ={traveVideos} size ="small" />
+      <SectionCard title="Productivity" videos ={productivityVideos}  size= "large" />
       </div>
 
 
