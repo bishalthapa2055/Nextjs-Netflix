@@ -19,16 +19,19 @@ export async function getServerSideProps() {
 
   const productivityVideos =await getVideos("Productivvity Videos")
 
+
+  const popularVideos =await getVideos("Nepal Popular Videos")
+
   
  
   // Pass data to the page via props
-  return { props: { disneyVideos ,  traveVideos , productivityVideos} }
+  return { props: { disneyVideos ,  traveVideos , popularVideos, productivityVideos} }
 }
 
 
 
 
-export default function Home({disneyVideos ,  traveVideos , productivityVideos }) {
+export default function Home({disneyVideos ,  traveVideos ,popularVideos, productivityVideos }) {
 
   return (
     <>
@@ -46,6 +49,7 @@ export default function Home({disneyVideos ,  traveVideos , productivityVideos }
       <div className={styles.sectionWrapper}>
 
       <SectionCard title="Disney" videos ={disneyVideos} size="large" />
+      <SectionCard title="Popular" videos ={popularVideos} size="small" />
       <SectionCard title="Travel" videos ={traveVideos} size ="small" />
       <SectionCard title="Productivity" videos ={productivityVideos}  size= "large" />
       </div>
