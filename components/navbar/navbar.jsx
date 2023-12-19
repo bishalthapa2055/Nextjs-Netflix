@@ -1,17 +1,39 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./navbar.module.css";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import ArrowDropDownOutlinedIcon from "@mui/icons-material/ArrowDropDownOutlined";
+import { magic } from "@/lib/magic-client";
+import { useEventCallback } from "@mui/material";
 
 const Navbar = (props) => {
+  
   const [showDropdown, setSetDropdown] = useState(false);
+  const [email ,setEmail] = useState("")
   const router = useRouter();
+
+
 
   const handleSignOut = (e) =>{
     setSetDropdown(!showDropdown)
   } 
 
+
+  useEffect(() =>{
+
+    const fetchEmail = async() =>{
+      const data = await magic.user.getMetadata()
+      console.log(data.email , "magic email ")
+      await setEmail(data.email)
+    }
+    fetchEmail()
+  },[])
+
+
+  const handleLogOut = () =>{
+    router.push("/login")
+    localStorage.removeItem("accessToken")
+  }
   console.log(props.userName);
   return (
     <>
@@ -37,11 +59,11 @@ const Navbar = (props) => {
           className={styles.nav__right__container}
           onClick={handleSignOut}
         >
-          <h5>{props.userName}</h5>
+          <h5>{email}</h5>
           <ArrowDropDownOutlinedIcon />
           {showDropdown && (
             <div className={styles.signout}>
-              <h4>Sign Out</h4>
+              <h4 onClick={handleLogOut}> Sign Out</h4>
             </div>
           )}
         </div>

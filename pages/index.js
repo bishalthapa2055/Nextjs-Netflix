@@ -5,9 +5,11 @@ import Navbar from '@/components/navbar/navbar.jsx'
 import Card from '@/components/card/card'
 import SectionCard from '@/components/card/sectionCard'
 import { getVideos } from '@/lib/videos'
+import { createMagic, m } from '@/lib/magic-client'
 
 // This gets called on every request
 export async function getServerSideProps() {
+
   // Fetch data from external API
   // const res = await fetch(`https://.../data`)
   // const data = await res.json()
@@ -32,7 +34,7 @@ export async function getServerSideProps() {
 
 
 export default function Home({disneyVideos ,  traveVideos ,popularVideos, productivityVideos }) {
-
+  console.log(createMagic , "createMagiov")
   return (
     <>
     <div >
