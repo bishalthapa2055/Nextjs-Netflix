@@ -15,6 +15,7 @@
     "@mui/material": "^5.14.20",
     "classnames": "^2.3.2",
     "framer-motion": "^10.16.16",
+    "magic-sdk": "^21.4.1",
     "next": "14.0.3",
     "react": "^18",
     "react-dom": "^18"

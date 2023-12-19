@@ -3,11 +3,14 @@ import React, { useEffect, useState } from 'react'
 import styles from "../styles/login.module.css"
 import TextField from '@mui/material/TextField';
 import { useRouter } from 'next/router';
+import { magic } from '@/lib/magic-client';
+
 
 const Login = () => {
 
     const [email, setEmail] = useState('');
     const [error, setError] = useState(false);
+    const [isLoading , setIsloading] = useState(false);
 
     const router = useRouter()
     const validateEmail = (inputEmail) => {
@@ -19,22 +22,30 @@ const Login = () => {
         const inputValue = e.target.value;
         setEmail(inputValue);
         setError(!validateEmail(inputValue));
+
     };
     
 
-    const handleSubmit = (e) =>{
-        e.preventDefault()
+    const handleSubmit = async(e) =>{
+        e.preventDefault(e)
+        setIsloading(!isLoading)
 
         if(!error){
-            router.push("/")
+            const response = await magic.auth.loginWithMagicLink({ email: email});
+            console.log(response , "magiv Link")
+
+            if(response){
+                localStorage.setItem("accessToken" , response)
+                router.push("/")
+            }
+
         }
-        else {
+        else {  
             alert("Error occured")
         }
+        setIsloading(isLoading)
     }
-    if(!error){
-        console.log('hey no error in this code ')
-    }
+   
   return (
     <>
     <div>
@@ -77,7 +88,9 @@ const Login = () => {
                 }
                 <div className={styles.data__container__button}>
                     <button className={styles.data__button} disabled={error} onClick={handleSubmit}>
-                        Sign In
+                        {
+                            isLoading ? "loading ..." : "Sign In"
+                        }
                     </button>
                 </div>
                </div>
