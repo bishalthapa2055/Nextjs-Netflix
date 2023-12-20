@@ -8,7 +8,7 @@ import cls from "classnames"
 const Card = (props) => {
     const {imageUrl , size}  = props    ;
     const [ imgSrc  , setImgSrc] = useState(imageUrl)
-    console.log(imageUrl , size)
+    // console.log(imageUrl , size)
 
 
     const classMap = {
@@ -28,7 +28,9 @@ const Card = (props) => {
    <motion.div className={cls(styles.imgMotionWrapper  , classMap[size])}  whileHover={{ scaleY: 1.1 }}>
    <Image src={imageUrl} alt='image' layout='fill' 
 //    onError={handleOnError} 
-   className={styles.cardImg}/>
+   className={styles.cardImg}
+   onClick={() =>console.log()}
+   />
    </motion.div>
    </div>
    </>

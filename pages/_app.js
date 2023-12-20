@@ -7,24 +7,24 @@ export default function App({ Component, pageProps }) {
   const router = useRouter()
   useEffect(() =>{
 
-    const checkToken = async() =>{
+    // const checkToken = async() =>{
 
-      const accessToken = await localStorage.getItem("accessToken")
-      console.log("access" , accessToken)
+    //   const accessToken = await localStorage.getItem("accessToken")
+    //   console.log("access" , accessToken)
 
-      if(accessToken){
-        setIsloading(true)
+    //   if(accessToken){
+    //     setIsloading(true)
 
-        setTimeout(() =>{
-          setIsloading(false)
-          router.push("/")
-        },5000)
-      }else{
+    //     setTimeout(() =>{
+    //       setIsloading(false)
+    //       router.push("/")
+    //     },5000)
+    //   }else{
 
-        router.push("/login")
-      }
-    }
-    checkToken()
+    //     router.push("/login")
+    //   }
+    // }
+    // checkToken()
   }, [])
   return isLoading ? <>Loading ....</> : <Component {...pageProps} />
 }
