@@ -2,10 +2,8 @@ import Banner from '@/components/banner/banner'
 import Head from 'next/head'
 import styles from "../styles/Home.module.css"
 import Navbar from '@/components/navbar/navbar.jsx'
-import Card from '@/components/card/card'
 import SectionCard from '@/components/card/sectionCard'
 import { getVideos } from '@/lib/videos'
-import { createMagic, m } from '@/lib/magic-client'
 
 // This gets called on every request
 export async function getServerSideProps() {
@@ -27,14 +25,14 @@ export async function getServerSideProps() {
   
  
   // Pass data to the page via props
-  return { props: { disneyVideos ,  traveVideos , popularVideos, productivityVideos} }
+  return { props: { disneyVideos ,  traveVideos , popularVideos , productivityVideos } }
 }
 
 
 
 
 export default function Home({disneyVideos ,  traveVideos ,popularVideos, productivityVideos }) {
-  console.log(createMagic , "createMagiov")
+ 
   return (
     <>
     <div >
