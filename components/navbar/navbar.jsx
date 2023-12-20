@@ -30,9 +30,16 @@ const Navbar = (props) => {
   },[])
 
 
-  const handleLogOut = () =>{
-    router.push("/login")
-    localStorage.removeItem("accessToken")
+  const handleLogOut = async(e) =>{
+    e.preventDefault()
+    try{
+      
+      const logOUt = await magic.user.logout()
+      localStorage.removeItem("accessToken")
+      router.push("/login")
+    }catch(error){
+      console.log(error)
+    }
   }
   console.log(props.userName);
   return (
