@@ -1,0 +1,36 @@
+.modal {
+    position: absolute;
+
+    /* center the modal */
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+
+
+    width: 800px;
+    height: 40px;
+    background-color: var(--black40);
+    top: 5%;
+
+
+    outline: none;
+    border-radius: 10px;
+    border: 1px solid var(--shadow10);
+}
+
+
+
+.borderBoxShadow {
+    --webkit-box-shadow : 0 3px 7px var(--shadow20)
+}
+.overlay {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.videoplayer {
+    border-radius: 10px 10px 0px 0px;
+   box-shadow: var(--shadow30);
+}
