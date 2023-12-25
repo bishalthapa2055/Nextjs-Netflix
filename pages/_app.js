@@ -1,3 +1,4 @@
+import Navbar from '@/components/navbar/navbar'
 import '@/styles/globals.css'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
@@ -26,5 +27,9 @@ export default function App({ Component, pageProps }) {
     // }
     // checkToken()
   }, [])
-  return isLoading ? <>Loading ....</> : <Component {...pageProps} />
+  return isLoading ? <>Loading ....</> :
+  <>
+   <Navbar userName = "testbishalthapa@gmail.com"/>
+   <Component {...pageProps} />
+  </>
 }
