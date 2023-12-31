@@ -4,6 +4,7 @@ import styles from "../styles/Home.module.css"
 import Navbar from '@/components/navbar/navbar.jsx'
 import SectionCard from '@/components/card/sectionCard'
 import { getVideos } from '@/lib/videos'
+import { startFetchMyQueryCopy } from '@/lib/db/hasura'
 
 // This gets called on every request
 export async function getServerSideProps() {
@@ -33,6 +34,7 @@ export async function getServerSideProps() {
 
 export default function Home({disneyVideos ,  traveVideos ,popularVideos, productivityVideos }) {
  
+  console.log(startFetchMyQueryCopy())
   return (
     <>
     <div >
