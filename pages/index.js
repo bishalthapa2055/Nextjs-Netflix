@@ -34,7 +34,6 @@ export async function getServerSideProps() {
 
 export default function Home({disneyVideos ,  traveVideos ,popularVideos, productivityVideos }) {
  
-  console.log(startFetchMyQueryCopy())
   return (
     <>
     <div >
